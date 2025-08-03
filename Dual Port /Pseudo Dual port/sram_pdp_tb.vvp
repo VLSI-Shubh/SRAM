@@ -1,0 +1,133 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 9;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01337F68 .scope module, "sram_pdp_tb" "sram_pdp_tb" 2 4;
+ .timescale -9 -9;
+P_0133D48C .param/l "depth" 2 6, +C4<010000000000>;
+P_0133D4A0 .param/l "width" 2 7, +C4<010000>;
+v01333398_0 .var "A", 15 0;
+v013333F0_0 .var "aa", 9 0;
+v01333448_0 .var "ab", 9 0;
+v01335140_0 .var "clk", 0 0;
+v01335198_0 .var "cs", 0 0;
+v013351F0_0 .var "r", 0 0;
+v01335248_0 .var "w", 0 0;
+v011D0228_0 .net "y", 15 0, v011C28D8_0; 1 drivers
+S_01338188 .scope module, "uut1" "sram_pdp" 2 15, 3 3, S_01337F68;
+ .timescale -9 -9;
+P_0133D614 .param/l "depth" 3 4, +C4<010000000000>;
+P_0133D628 .param/l "width" 3 5, +C4<010000>;
+v01333078_0 .net "add_A", 9 0, v013333F0_0; 1 drivers
+v0133EE78_0 .net "add_B", 9 0, v01333448_0; 1 drivers
+v0133EF38_0 .net "clk", 0 0, v01335140_0; 1 drivers
+v0133EF90_0 .net "cs", 0 0, v01335198_0; 1 drivers
+v011C2880_0 .net "data_inA", 15 0, v01333398_0; 1 drivers
+v011C28D8_0 .var "data_outB", 15 0;
+v011C2930 .array "mem", 1023 0, 15 0;
+v011C2988_0 .net "re_B", 0 0, v013351F0_0; 1 drivers
+v01333340_0 .net "we_A", 0 0, v01335248_0; 1 drivers
+E_011C1F60 .event posedge, v0133EF38_0;
+    .scope S_01338188;
+T_0 ;
+    %wait E_011C1F60;
+    %load/v 8, v0133EF90_0, 1;
+    %load/v 9, v01333340_0, 1;
+    %and 8, 9, 1;
+    %jmp/0xz  T_0.0, 8;
+    %load/v 8, v011C2880_0, 16;
+    %ix/getv 3, v01333078_0;
+    %jmp/1 t_0, 4;
+    %ix/load 0, 16, 0; word width
+    %ix/load 1, 0, 0; part off
+    %assign/av v011C2930, 0, 8;
+t_0 ;
+T_0.0 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_01338188;
+T_1 ;
+    %wait E_011C1F60;
+    %load/v 8, v0133EF90_0, 1;
+    %load/v 9, v011C2988_0, 1;
+    %and 8, 9, 1;
+    %jmp/0xz  T_1.0, 8;
+    %ix/getv 3, v0133EE78_0;
+    %load/av 8, v011C2930, 16;
+    %ix/load 0, 16, 0;
+    %assign/v0 v011C28D8_0, 0, 8;
+    %jmp T_1.1;
+T_1.0 ;
+    %ix/load 0, 16, 0;
+    %assign/v0 v011C28D8_0, 0, 3;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_01337F68;
+T_2 ;
+    %set/v v01335140_0, 0, 1;
+T_2.0 ;
+    %delay 5, 0;
+    %load/v 8, v01335140_0, 1;
+    %inv 8, 1;
+    %set/v v01335140_0, 8, 1;
+    %jmp T_2.0;
+    %end;
+    .thread T_2;
+    .scope S_01337F68;
+T_3 ;
+    %set/v v01333398_0, 0, 16;
+    %set/v v01335248_0, 0, 1;
+    %set/v v013351F0_0, 0, 1;
+    %set/v v01335198_0, 0, 1;
+    %set/v v013333F0_0, 0, 10;
+    %set/v v01333448_0, 0, 10;
+    %vpi_call 2 32 "$dumpfile", "sram_pdp_tb.vcd";
+    %vpi_call 2 33 "$dumpvars", 1'sb0, S_01337F68;
+    %wait E_011C1F60;
+    %set/v v01335198_0, 1, 1;
+    %set/v v01335248_0, 1, 1;
+    %movi 8, 12, 10;
+    %set/v v013333F0_0, 8, 10;
+    %movi 8, 43981, 16;
+    %set/v v01333398_0, 8, 16;
+    %wait E_011C1F60;
+    %set/v v01335248_0, 0, 1;
+    %set/v v01333398_0, 0, 16;
+    %wait E_011C1F60;
+    %set/v v013351F0_0, 1, 1;
+    %movi 8, 12, 10;
+    %set/v v01333448_0, 8, 10;
+    %wait E_011C1F60;
+    %set/v v013351F0_0, 0, 1;
+    %wait E_011C1F60;
+    %set/v v01335248_0, 1, 1;
+    %movi 8, 100, 10;
+    %set/v v013333F0_0, 8, 10;
+    %movi 8, 4660, 16;
+    %set/v v01333398_0, 8, 16;
+    %wait E_011C1F60;
+    %set/v v01335248_0, 0, 1;
+    %wait E_011C1F60;
+    %set/v v013351F0_0, 1, 1;
+    %movi 8, 100, 10;
+    %set/v v01333448_0, 8, 10;
+    %wait E_011C1F60;
+    %set/v v013351F0_0, 0, 1;
+    %wait E_011C1F60;
+    %vpi_call 2 65 "$finish";
+    %end;
+    .thread T_3;
+    .scope S_01337F68;
+T_4 ;
+    %vpi_call 2 70 "$monitor", "Time=%0t | clk=%b | cs=%b | we_A=%b | re_B=%b | A=%h | aa=%d | ab=%d | y=%h", $time, v01335140_0, v01335198_0, v01335248_0, v013351F0_0, v01333398_0, v013333F0_0, v01333448_0, v011D0228_0;
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "sram_pdp_tb.v";
+    "./sram_pdp.v";
