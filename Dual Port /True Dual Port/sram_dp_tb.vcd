@@ -1,0 +1,222 @@
+$date
+	Sat Aug 02 22:24:46 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module sram_dp_tb $end
+$var wire 16 ! data_outA [15:0] $end
+$var wire 16 " data_outB [15:0] $end
+$var reg 8 # add_A [7:0] $end
+$var reg 8 $ add_B [7:0] $end
+$var reg 1 % clk_A $end
+$var reg 1 & clk_B $end
+$var reg 1 ' cs $end
+$var reg 16 ( data_inA [15:0] $end
+$var reg 16 ) data_inB [15:0] $end
+$var reg 1 * re_A $end
+$var reg 1 + re_B $end
+$var reg 1 , we_A $end
+$var reg 1 - we_B $end
+$scope module DUT $end
+$var wire 8 . add_A [7:0] $end
+$var wire 8 / add_B [7:0] $end
+$var wire 1 0 clk_A $end
+$var wire 1 1 clk_B $end
+$var wire 1 2 cs $end
+$var wire 16 3 data_inA [15:0] $end
+$var wire 16 4 data_inB [15:0] $end
+$var wire 1 5 re_A $end
+$var wire 1 6 re_B $end
+$var wire 1 7 we_A $end
+$var wire 1 8 we_B $end
+$var reg 16 9 data_outA [15:0] $end
+$var reg 16 : data_outB [15:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx :
+bx 9
+08
+07
+06
+05
+bx 4
+bx 3
+12
+01
+00
+bx /
+bx .
+0-
+0,
+0+
+0*
+bx )
+bx (
+1'
+0&
+0%
+bx $
+bx #
+bx "
+bx !
+$end
+#5000
+bz 9
+bz !
+1%
+10
+#7000
+bz :
+bz "
+1&
+11
+#10000
+1,
+17
+b101 #
+b101 .
+b1010101010101010 (
+b1010101010101010 3
+0%
+00
+#14000
+1-
+18
+b1010 $
+b1010 /
+b1011101110111011 )
+b1011101110111011 4
+0&
+01
+#15000
+1%
+10
+#20000
+0,
+07
+0%
+00
+#21000
+1&
+11
+#25000
+1%
+10
+#28000
+0-
+08
+0&
+01
+#30000
+1*
+15
+0%
+00
+#35000
+b1010101010101010 9
+b1010101010101010 !
+1%
+10
+1&
+11
+#40000
+0%
+00
+#42000
+1+
+16
+0&
+01
+#45000
+1%
+10
+#49000
+b1011101110111011 :
+b1011101110111011 "
+1&
+11
+#50000
+0*
+05
+1,
+17
+b1111 #
+b1111 .
+b1001000110100 (
+b1001000110100 3
+0%
+00
+#55000
+1%
+10
+#56000
+b101 $
+b101 /
+0&
+01
+#60000
+0,
+07
+0%
+00
+#63000
+b1010101010101010 :
+b1010101010101010 "
+1&
+11
+#65000
+bz 9
+bz !
+1%
+10
+#70000
+1*
+15
+0%
+00
+0&
+01
+#75000
+b1001000110100 9
+b1001000110100 !
+1%
+10
+#77000
+1&
+11
+#80000
+0%
+00
+#84000
+0+
+06
+0&
+01
+#85000
+1%
+10
+#90000
+0%
+00
+#91000
+bz :
+bz "
+1&
+11
+#95000
+1%
+10
+#98000
+0&
+01
+#100000
+0%
+00
+#104000
