@@ -192,6 +192,18 @@ Why?
 > ✅ This simulation validates the ability of the memory to handle concurrent, independent read and write operations.
 
 ---
+## 🛠️ Synthesized Circuit
+
+To demonstrate the **synthesizability** of each SRAM design, all circuits were successfully synthesized using **Yosys 0.37** on [EDA Playground](https://www.edaplayground.com), an online HDL simulation and synthesis platform.
+
+Below are the synthesized schematic PDFs for each implementation:
+- [Single Port SRAM – Synchronous Read](https://github.com/VLSI-Shubh/SRAM/blob/23ef6546076f07f3b024e953c0f03f782b05bf2c/images/SRAM_Synchronous%20read%20Synthesis%20(EDA%20Playground).pdf)
+- [Single Port SRAM – Asynchronous Read](https://github.com/VLSI-Shubh/SRAM/blob/23ef6546076f07f3b024e953c0f03f782b05bf2c/images/SRAM_Asynchronous%20read%20Synthesis%20(EDA%20Playground).pdf)
+- [Pseudo Dual Port SRAM – Sync Read](https://github.com/VLSI-Shubh/SRAM/blob/23ef6546076f07f3b024e953c0f03f782b05bf2c/images/SRAM_Pseudo%20Dual%20Port%20Synthesis%20(EDA%20Playground).pdf)
+- [True Dual Port SRAM – Sync Read](https://github.com/VLSI-Shubh/SRAM/blob/23ef6546076f07f3b024e953c0f03f782b05bf2c/images/SRAM_True%20Dual%20Port%20Synthesis%20(EDA%20Playground).pdf)
+
+Each schematic validates that the Verilog description is not only correct but also **hardware-realizable** using standard synthesis tools.
+---
 ## 📁 Project Structure
 
 | File | Description |
@@ -219,5 +231,6 @@ Why?
 
 
 Open for educational and personal use under the [MIT License](https://github.com/VLSI-Shubh/SRAM/blob/3f7917260e63eb739c8da0813528dcd941404774/License.txt)
+
 
 
