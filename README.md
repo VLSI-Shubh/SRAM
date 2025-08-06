@@ -188,11 +188,7 @@ Why?
 - Each port operates on **its own clock** (`clk_A`, `clk_B`).
 - When read enable is low, the corresponding output enters **high-impedance (`zzzz`)** state.
 - Demonstrates **non-blocking and parallel memory access**.
-  
-True dual port SRAM allows **independent, simultaneous** read/write operations through two separate ports (`A` and `B`), each with its own clock.
-- Writes and reads occur **only on respective clock edges** (`clk_A` and `clk_B`) due to synchronous design.
-- **`data_outA` and `data_outB` reflect changes** when the corresponding port is in **read mode**, and enter **high impedance (`zzzz`)** when not reading.
-- 
+
 > ✅ This simulation validates the ability of the memory to handle concurrent, independent read and write operations.
 
 ---
@@ -223,4 +219,5 @@ True dual port SRAM allows **independent, simultaneous** read/write operations t
 
 
 Open for educational and personal use under the [MIT License](https://github.com/VLSI-Shubh/SRAM/blob/3f7917260e63eb739c8da0813528dcd941404774/License.txt)
+
 
