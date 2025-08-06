@@ -158,14 +158,14 @@ This table captures key events from the VCD simulation and explains output trans
 
 | Time (ns) | Action                                                                 | Port A Signals                                  | Port B Signals                                  | Output A | Output B | Explanation |
 |-----------|------------------------------------------------------------------------|--------------------------------------------------|--------------------------------------------------|----------|----------|-------------|
-| 15000     | 📝 Write to addr 5 by Port A                                            | `we_A=1`, `add_A=5`, `data_inA=aaaa`             | —                                                | zzzz     | zzzz     | Port A writes `aaaa` to addr 5 |
-| 21000     | 📝 Write to addr 10 by Port B                                           | —                                                | `we_B=1`, `add_B=10`, `data_inB=bbbb`            | zzzz     | zzzz     | Port B writes `bbbb` to addr 10 |
-| 35000     | 👓 Read from addr 5 by Port A                                           | `re_A=1`, `add_A=5`                              | —                                                | `aaaa`   | zzzz     | Port A reads its own earlier write to addr 5 |
-| 49000     | 👓 Read from addr 10 by Port B                                          | —                                                | `re_B=1`, `add_B=10`                             | aaaa     | `bbbb`   | Port B reads its own earlier write to addr 10 |
-| 56000     | 📝 Write to addr 15 by Port A                                           | `we_A=1`, `add_A=15`, `data_inA=1234`            | —                                                | aaaa     | bbbb     | Port A writes `1234` to addr 15 |
-| 63000     | ⚠️ Read from addr 5 by Port B                                           | —                                                | `re_B=1`, `add_B=5`                              | aaaa     | `aaaa`   | 🧠 **Important:** Even though `data_inB=bbbb`, no write occurred to addr 5. Port B reads `aaaa`, written earlier by Port A. |
-| 75000     | 👓 Read from addr 15 by Port A                                          | `re_A=1`, `add_A=15`                             | —                                                | `1234`   | aaaa     | Port A verifies its own write to addr 15 |
-| 91000     | 🛑 End of read by Port B                                                | —                                                | `re_B=0`                                         | `1234`   | zzzz     | Output B goes high-Z after read is disabled |
+| 15000     | Write to addr 5 by Port A                                            | `we_A=1`, `add_A=5`, `data_inA=aaaa`             | —                                                | zzzz     | zzzz     | Port A writes `aaaa` to addr 5 |
+| 21000     | Write to addr 10 by Port B                                           | —                                                | `we_B=1`, `add_B=10`, `data_inB=bbbb`            | zzzz     | zzzz     | Port B writes `bbbb` to addr 10 |
+| 35000     | Read from addr 5 by Port A                                           | `re_A=1`, `add_A=5`                              | —                                                | `aaaa`   | zzzz     | Port A reads its own earlier write to addr 5 |
+| 49000     | Read from addr 10 by Port B                                          | —                                                | `re_B=1`, `add_B=10`                             | aaaa     | `bbbb`   | Port B reads its own earlier write to addr 10 |
+| 56000     | Write to addr 15 by Port A                                           | `we_A=1`, `add_A=15`, `data_inA=1234`            | —                                                | aaaa     | bbbb     | Port A writes `1234` to addr 15 |
+| 63000     | Read from addr 5 by Port B                                           | —                                                | `re_B=1`, `add_B=5`                              | aaaa     | `aaaa`   | 🧠 **Important:** Even though `data_inB=bbbb`, no write occurred to addr 5. Port B reads `aaaa`, written earlier by Port A. |
+| 75000     | Read from addr 15 by Port A                                          | `re_A=1`, `add_A=15`                             | —                                                | `1234`   | aaaa     | Port A verifies its own write to addr 15 |
+| 91000     | End of read by Port B                                                | —                                                | `re_B=0`                                         | `1234`   | zzzz     | Output B goes high-Z after read is disabled |
 
 ---
 
@@ -228,5 +228,6 @@ Why?
 
 ---
 ## 📝 License
+
 
 Open for educational and personal use under the [MIT License](https://github.com/VLSI-Shubh/SRAM/blob/3f7917260e63eb739c8da0813528dcd941404774/License.txt)
